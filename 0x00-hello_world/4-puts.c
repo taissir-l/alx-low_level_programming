@@ -1,8 +1,8 @@
 #include <unistd.h>
 /**
- * main - the Entery point
+ * main - Entry point of the program
  *
- * Retern: 0 is Success
+ * Return: 0 if successful, non-zero value if an error occurred
  */
 int main(void)
 {
