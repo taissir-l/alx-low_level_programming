@@ -1,8 +1,8 @@
 #include <unistd.h>
 /**
- * main - the c program
- * 
- * retern: 0 (Success)
+ * main - the Entery point
+ *
+ * Retern: 0 is Success
  */
 int main(void)
 {
