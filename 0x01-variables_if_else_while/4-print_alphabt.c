@@ -16,6 +16,6 @@ if (i != 101 && i != 113)
 putchar(i);
 }
 }
-putchar("\n");
+putchar('\n');
 return (0);
 }
