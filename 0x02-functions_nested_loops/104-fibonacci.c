@@ -14,9 +14,10 @@ int main(void)
 	unsigned long int b2;
 	unsigned long int a1;
 	unsigned long int a2;
+	unsigned long int tmp;
 
 	printf("%lu", b);
-	for (i = 1; i < 91, i++)
+	for (i = 1; i < 91; i++)
 	{
 		printf(", %lu", a);
 		a += b;
@@ -30,8 +31,7 @@ int main(void)
 	{
 		printf(", %lu", a1 + (a2 / l));
 		printf("%lu", a2 % l);
-		unsigned long int tmp = a1;
-
+		tmp = a1;
 		a1 = a1 + b1;
 		b1 = tmp;
 		tmp = a2;
