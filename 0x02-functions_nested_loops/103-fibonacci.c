@@ -17,6 +17,6 @@ int main(void)
 		j += i;
 		i = k;
 	}
-	printf("%ld\n", sum);
+	printf("%d\n", sum);
 	return (0);
 }
