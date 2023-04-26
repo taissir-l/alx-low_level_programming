@@ -4,7 +4,7 @@
  *
  * @i: the integer
  *
- * Return: the last number
+ * Return: last digit
  */
 int print_last_digit(int i)
 {
@@ -13,7 +13,7 @@ int print_last_digit(int i)
 	a = i % 10;
 	if (a < 0)
 	{
-		_putchar (-a + 48);
+		_putchar(-a + 48);
 		return (-a);
 	}
 	else
