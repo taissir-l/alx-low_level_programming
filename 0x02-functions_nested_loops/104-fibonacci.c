@@ -1,42 +1,37 @@
 #include <stdio.h>
+#define LARGEST 10000000000
 /**
- * main - Fibonacci numbers
- *
- * Return: 0 always
+ * main - main block
+ * Description: Find and print the first 98 fib numbers starting with 1 and 2.
+ * Numbers should be coma and space separated.
+ * Return: 0
  */
 int main(void)
 {
-	unsigned long int i;
-	unsigned long int b = 1;
-	unsigned long int a = 2;
-	unsigned long int l = 1000000000;
-	unsigned long int b1;
-	unsigned long int b2;
-	unsigned long int a1;
-	unsigned long int a2;
-	unsigned long int tmp;
+	unsigned long int f1 = 0, b1 = 1, f2 = 0, b2 = 2;
+	unsigned long int h1, h2, h3;
+	int c;
 
-	printf("%lu", b);
-	for (i = 1; i < 91; i++)
+	printf("%lu, %lu, ", b1, b2);
+	for (c = 2; c < 98; c++)
 	{
-		printf(", %lu", a);
-		a += b;
-		b = a - b;
-	}
-	b1 = (b / l);
-	b2 = (b % l);
-	a1 = (a / l);
-	a2 = (a % l);
-	for (i = 92; i < 99; ++i)
-	{
-		printf(", %lu", a1 + (a2 / l));
-		printf("%lu", a2 % l);
-		tmp = a1;
-		a1 = a1 + b1;
-		b1 = tmp;
-		tmp = a2;
-		a2 = a2 + b2 + (a1 / l);
-		b2 = tmp % l;
+		if (b1 + b2 > LARGEST || f2 > 0 || f1 > 0)
+		{
+			h1 = (b1 + b2) / LARGEST;
+			h2 = (b1 + b2) % LARGEST;
+			h3 = f1 + f2 + h1;
+			f1 = f2, f2 = h3;
+			b1 = b2, b2 = h2;
+			printf("%lu%010lu", f2, b2);
+		}
+		else
+		{
+			h2 = b1 + b2;
+			b1 = b2, b2 = h2;
+			printf("%lu", b2);
+		}
+		if (c != 97)
+			printf(", ");
 	}
 	printf("\n");
 	return (0);
