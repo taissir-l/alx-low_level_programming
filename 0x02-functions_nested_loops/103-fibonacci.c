@@ -5,18 +5,18 @@
  */
 int main(void)
 {
-	int i = 0;
+	int i = 1, j = 2, sum = 0;
+	int k;
 
-	long j = 1, k = 2, s = k;
-
-	while (k + j < 4000000)
+	while (j < 4000000)
 	{
-		k += j;
-		if (k % 2 == 0)
-		s += j;
-		j = k - j;
-		++i;
+		if (j % 2 == 0)
+			sum += j;
+
+		k = j;
+		j += i;
+		i = k;
 	}
-	printf("%ld\n", s);
+	printf("%ld\n", sum);
 	return (0);
 }
