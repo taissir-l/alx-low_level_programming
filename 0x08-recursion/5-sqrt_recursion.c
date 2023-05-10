@@ -17,7 +17,7 @@ return (-1);
 }
 if (q == n)
 {
-return (q);
+return (i);
 }
 return (the_real_deal(n, i + 1));
 }
