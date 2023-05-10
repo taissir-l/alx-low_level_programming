@@ -17,7 +17,7 @@ int the_lenght(char *s);
  */
 int the_real_deal(char *s, int i, int l)
 {
-if (*(s + i) != *(s + l - 1)
+if (*(s + i) != *(s + l - 1))
 {
 return (0);
 }
