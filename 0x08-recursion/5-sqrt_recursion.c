@@ -12,7 +12,7 @@
 int _sqrt_recursion(int n)
 {
 	if (n < 0)
-		return (-1)
+		return (-1);
 	return (the_real_deal(n, 1));
 }
 /**
