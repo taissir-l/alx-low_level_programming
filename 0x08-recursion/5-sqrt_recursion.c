@@ -1,21 +1,5 @@
 #include "main.h"
 /**
- * _sqrt_recursion - function that returns the natural square root
- * of a number
- *
- * @n: the input number
- *
- * Return: the square root of n.
- * If n does not have a natural square root
- * the function should return -1
- */
-int _sqrt_recursion(int n)
-{
-	if (n < 0)
-		return (-1);
-	return (the_real_deal(n, 1));
-}
-/**
  * the_real_deal - the counter of the sqrt
  *
  * @n:  the input number
@@ -37,3 +21,21 @@ return (q);
 }
 return (the_real_deal(n, i + 1));
 }
+
+/**
+ * _sqrt_recursion - function that returns the natural square root
+ * of a number
+ *
+ * @n: the input number
+ *
+ * Return: the square root of n.
+ * If n does not have a natural square root
+ * the function should return -1
+ */
+int _sqrt_recursion(int n)
+{
+	if (n < 0)
+		return (-1);
+	return (the_real_deal(n, 1));
+}
+

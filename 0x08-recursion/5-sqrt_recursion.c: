@@ -1,0 +1,5 @@
+qrt_recursion.c:16:10: error: implicit declaration of function ‘the_real_deal’ [-Werror=implicit-function-declaration]
+   16 |  return (the_real_deal(n, 1));
+      |          ^~~~~~~~~~~~~
+cc1: all warnings being treated as errors:q
+
