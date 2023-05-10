@@ -2,7 +2,7 @@
 
 
 int the_real_deal(char *s, int i, int l);
-int the_lenght(char *s);
+int the_length(char *s);
 
 
 
@@ -41,7 +41,7 @@ if (*s == 0)
 {
 return (0);
 }
-return (1 + the_lenght(s + 1));
+return (1 + the_length(s + 1));
 }
 
 /**
@@ -56,5 +56,5 @@ int is_palindrome(char *s)
 {
 	if (*s == 0)
 		return (1);
-	return (the_real_deal(s, 0, the_lenght(s)));
+	return (the_real_deal(s, 0, the_length(s)));
 }
