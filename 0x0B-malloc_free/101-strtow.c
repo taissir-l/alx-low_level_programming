@@ -14,7 +14,7 @@ char **strtow(char *str);
  * Return: the index of first word in the string
  */
 
-int find_lenght(char *str)
+int find_length(char *str)
 {
 	int i = 0, l = 0;
 
