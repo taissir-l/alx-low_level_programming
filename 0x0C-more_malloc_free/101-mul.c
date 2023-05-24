@@ -56,14 +56,14 @@ void exit_error(void)
 
 
 /**
- * mai - a program that multiplies two positive numbers.
+ * main - a program that multiplies two positive numbers.
  *
  * @argc: the number
  * @argv: the array
  *
  * Return: 0 always
  */
-int mai(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	char *s1, *s2;
 	int len1, len2, len, i, x, num1, num2, *mul, a = 0;

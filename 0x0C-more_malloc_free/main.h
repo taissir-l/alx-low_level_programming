@@ -10,7 +10,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 int digit_check(char *s);
 int str_len(char *s);
 void exit_error(void);
-int mai(int argc, char *argv[]);
+int main(int argc, char *argv[]);
 
 
 #endif
