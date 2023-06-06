@@ -47,7 +47,6 @@ size_t free_listint_safe(listint_t **h)
 	{
 		len++;
 		next = (*h)->next;
-
 		if (*h == l && x)
 		{
 			if (l == l->next)
