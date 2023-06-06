@@ -2,88 +2,36 @@
 #include <stdio.h>
 
 /**
- * _listint_len - function that counts the number of unique
- *               nodes in a looped listint_t linked list.
- *
- * @head: pointer to the head of the list.
- *
- * Return: If the list is not looped 0 or
- *         the number of unique nodes in the list.
- */
-
-size_t _listint_len(const listint_t *head)
-{
-	const listint_t *t, *h;
-	size_t nodes = 1;
-
-	if (head == NULL || head->next == NULL)
-		return (0);
-
-	t = head->next;
-	h = (head->next)->next;
-
-	while (h)
-	{
-		if (t == h)
-		{
-			t = h;
-			while (t != h)
-			{
-				nodes++;
-				t = t->next;
-				h = h->next;
-			}
-
-			t = t->next;
-			while (t != h)
-			{
-				nodes++;
-				t = t->next;
-			}
-
-			return (nodes);
-		}
-
-		t = t->next;
-		h = (h->next)->next;
-	}
-
-	return (0);
-}
-
-
-/**
  * print_listint_safe - function that prints a listint_t linked list.
  *
- * @head: first node.
+ * @head: head of linked list
  *
- * Return: the number of nodes in the list
+ * Return: number of nodes in list. If fails, exit with status 98.
  */
-
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t nodes, i = 0;
+	const listint_t *c;
+	size_t i;
+	const listint_t *h;
 
-	nodes = _listint_len(head);
-	if (nodes == 0)
+	c = head;
+	if (c == NULL)
+		exit(98);
+
+	i = 0;
+	while (c != NULL)
 	{
-		for (; head != NULL; nodes++)
+		h = c;
+		c = c->next;
+		i++;
+		printf("[%p] %d\n", (void *)h, h->n);
+
+		if (h < c)
 		{
-			printf("[%p] %d\n", (void *)head, head->n);
-			head = head->next;
+			printf("-> [%p] %d\n", (void *)c, c->n);
+			break;
 		}
 	}
 
-	else
-	{
-		for (i = 0; i < nodes; i++)
-		{
-			printf("[%p] %d\n", (void *)head, head->n);
-			head = head->next;
-		}
-
-		printf("-> [%p] %d\n", (void *)head, head->n);
-	}
-
-	return (nodes);
+	return (i);
 }
