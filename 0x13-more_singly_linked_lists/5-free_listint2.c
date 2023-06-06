@@ -1,3 +1,5 @@
+#include "lists.h"
+
 /**
  * free_listint2 - an other function that frees a linked list.
  *
@@ -20,5 +22,5 @@ void free_listint2(listint_t **head)
 		*head = p;
 	}
 
-	*head = NULL;
+	head = NULL;
 }
