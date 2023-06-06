@@ -1,4 +1,30 @@
 #include "lists.h"
+#include <stdlib.h>
+
+/**
+ * find_loop - locates a loop in a linked list
+ *
+ * @head: list
+ *
+ * Return: the adress when the loop starts.
+ */
+
+listint_t *find_loop(listint_t *head)
+{
+	listint_t *p, *end;
+
+	if (head == NULL)
+		return (NULL);
+	for (end = head->next; end != NULL; end = end->next)
+	{
+		if (end == end->next)
+			return (end);
+		for (p = head; p != end; p = p->next)
+			if (p == end->next)
+				return (end->next);
+	}
+	return (NULL);
+}
 
 /**
  * free_listint_safe -  function that frees a listint_t list.
@@ -10,34 +36,32 @@
 
 size_t free_listint_safe(listint_t **h)
 {
-	size_t len = 0;
-	int x;
-	listint_t *a;
+	size_t len;
+	listint_t *n, *l;
+	int x = 1;
 
-	if (!h || !*h)
+	if (h == NULL || *h == NULL)
 		return (0);
-
-	while (*h)
+	l = find_loop(*h);
+	for (len = 0; (*h != l || x) && *h != NULL; *h = n)
 	{
-		x = *h - (*h)->next;
-		if (x > 0)
+		len++;
+		n = (*h)->next;
+		
+		if (*h == l && x)
 		{
-			a = (*h)->next;
-			free(*h);
-			*h = a;
+			if (l == l->next)
+			{
+				free(*h);
+				break;
+			}
 			len++;
+			n = n->next;
+			free((*h)->next);
+			x = 0;
 		}
-		else
-		{
-			free(*h);
-			*h = NULL;
-			len++;
-			break;
-		}
+		free(*h);
 	}
-
 	*h = NULL;
-
 	return (len);
 }
-
