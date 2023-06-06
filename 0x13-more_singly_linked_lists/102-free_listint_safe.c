@@ -37,16 +37,17 @@ listint_t *find_loop(listint_t *head)
 size_t free_listint_safe(listint_t **h)
 {
 	size_t len;
-	listint_t *next, l;
+	listint_t *n, *l;
 	int x = 1;
 
 	if (h == NULL || *h == NULL)
 		return (0);
 	l = find_loop(*h);
-	for (len = 0; (*h != l || x) && *h != NULL; *h = next)
+
+	for (len = 0; (*h != l || x) && *h != NULL; *h = n)
 	{
 		len++;
-		next = (*h)->next;
+		n = (*h)->next;
 		if (*h == l && x)
 		{
 			if (l == l->next)
@@ -55,7 +56,7 @@ size_t free_listint_safe(listint_t **h)
 				break;
 			}
 			len++;
-			next = next->next;
+			n = n->next;
 			free((*h)->next);
 			x = 0;
 		}
