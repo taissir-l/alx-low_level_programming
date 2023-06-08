@@ -1,1 +1,1 @@
-my first c projects
+ C - Bit manipulation
