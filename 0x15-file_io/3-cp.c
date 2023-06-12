@@ -1,6 +1,6 @@
 #include "main.h"
 #include <stdio.h>
-
+#include <stdlib.h>
 
 /**
  * valid_file - function that checks if files can be opened.
@@ -14,18 +14,17 @@
 
 void valid_file(int file_from, int file_to, char *argv[])
 {
-	if (file_from == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read
-				from file %s\n", argv[1]);
-		exit(98);
-	}
+if (file_from == -1)
+{
+dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+exit(98);
+}
 
-	if (file_to == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		exit(99);
-	}
+if (file_to == -1)
+{
+dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+exit(99);
+}
 }
 
 
@@ -63,14 +62,14 @@ int main(int argc, char *argv[])
 			valid_file(0, -1, argv);
 	}
 	error_close = close(file_from);
-	if (err_close == -1)
+	if (error_close == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
 		exit(100);
 	}
 	error_close = close(file_to);
 
-	if (err_close == -1)
+	if (error_close == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
 		exit(100);
