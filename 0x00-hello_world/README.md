@@ -1,1 +1,1 @@
-finally learning c
+finally learning c language
