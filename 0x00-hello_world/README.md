@@ -1,1 +1,1 @@
-finally learning c language <3
+finally learning c language
