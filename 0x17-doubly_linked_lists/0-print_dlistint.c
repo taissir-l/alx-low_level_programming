@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stddef.h>
 /**
  * print_dlistint - function Prints all elements of double linked list.
  *
@@ -9,7 +10,7 @@
 
 size_t print_dlistint(const dlistint_t *h)
 {
-	size_t leng = 0;
+	int leng = 0;
 
 	if (h == NULL)
 		return (leng);
