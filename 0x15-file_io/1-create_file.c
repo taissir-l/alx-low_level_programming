@@ -1,39 +1,32 @@
 #include "main.h"
-#include <stdlib.h>
 
 /**
- * read_textfile - function that reads a text file and prints it
- *                 to the POSIX standard output.
+ * create_file - function that creates a file.
  *
- * @filename: filename.
- * @letters: number of letters it should read and print.
+ * @filename: the name of the file to create.
+ * @text_content: NULL terminated string to write to the file.
  *
- * Return: the actual number of bytes read and printed
- *         or 0 when function fails or filename is NULL.
+ * Return: 1 on success, -1 on failure.
  */
 
-ssize_t read_textfile(const char *filename, size_t letters)
+int create_file(const char *filename, char *text_content)
 {
-	int file;
-	ssize_t i, j;
-	char *x;
+	int file, i, j;
 
 	if (!filename)
-		return (0);
+		return (-1);
 
-	file = open(filename, O_RDONLY);
+	file = open(filename, O_CREAT | O_WRONLY | O_TRUNC, 0600);
 
-	if (file == -1)
-		return (0);
+	if (!text_content)
+		text_content = "";
+	for (i = 0; text_content[i]; i++)
+		;
 
-	x = malloc(sizeof(char) * (letters));
+	j = write(file, text_content, i);
 
-	if (!x)
-		return (0);
-	i = read(file, x, letters);
-	j = write(STDOUT_FILENO, x, i);
+	if (j == -1 || file == -1)
+		return (-1);
 	close(file);
-	free(x);
-
-	return (j);
+	return (1);
 }
